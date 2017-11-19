@@ -39,17 +39,27 @@ li,.hide,.top,.box,.icon,.replay{
 }
 .nav h3{
 	float: left;
-	margin-right: 40px;
-	font: 30px/50px KaiTi;
-	color: white;
-	cursor: not-allowed;
+	width: 100px;
+	text-align: center;
+	font: 27px/50px arial;
+	cursor: pointer;
+	transition: transform 1s;
+}
+.nav h3:hover{
+	transform: rotate(720deg);
+}
+.nav h3 a{
+	transition: color 1s;
+}
+.nav h3:hover a{
+	color: deepskyblue;	
 }
 .nav li{
 	float: left;
 	padding: 20px 20px;
 	height: 10px;
 	line-height: 10px;
-	font-size: 10px;	
+	font-size: 10px;
 }
 .second li{
 	float: right;
@@ -83,9 +93,9 @@ li,.hide,.top,.box,.icon,.replay{
 	z-index: 0;
 	margin-left: -675px;
 	width: 1349px;
-	height: 3945px;
-	background: url(img/bg01.jpg) no-repeat;
-	background-size: contain;
+	height: 3960px;
+	background: url(img/bg.jpg) no-repeat;
+	background-size: 1349px;
 }
 #main h6{
 	text-align: left;
@@ -227,7 +237,7 @@ h6 strong{
 	position: absolute;
 	z-index: 3;
 	width: 125px;
-	height: 250px;	
+	height: 250px;
 	opacity: 0;
 }
 .stage .next{
@@ -239,9 +249,13 @@ h6 strong{
 	left: 10px;
 	width: 22px;
 	height: 21px;
+	background: url(icon.png);
+	background-size: cover;
 }
 .next img{
-	left: 93px;
+	left: auto;
+	right: 10px;
+	background-position: 22px 0;
 }
 #milky{
 	position: absolute;
@@ -276,7 +290,7 @@ h6 strong{
 	margin: -10px;
 	-webkit-filter: blur(5px);
 	filter: blur(5px);
-	background: url(img/bg01.jpg) top -525px left -254px;
+	background: url(img/bg.jpg) -254px -525px;
 	background-size: 1349px;
 }
 .blur strong{
@@ -302,7 +316,9 @@ h6 strong{
 	box-shadow: 0 0 10px 5px rgba(255,255,200,0.3);
 }
 .trail:after{
-	background-position: top -1045px left -254px;	
+	-webkit-filter: hue-rotate(180deg);
+	filter: hue-rotate(180deg);
+	background-position: -254px -1045px;	
 }
 .trail strong,.trail p{
 	color: rgba(255,255,200,0.8);
@@ -317,7 +333,9 @@ h6 strong{
 	box-shadow: 0 0 10px 5px rgba(200,255,200,0.3);
 }
 .triangle:after{
-	background-position: top -1565px left -254px;	
+	-webkit-filter: hue-rotate(315deg);
+	filter: hue-rotate(315deg);
+	background-position: -254px -1565px;	
 }
 .triangle p{
 	max-height: 140px;
@@ -330,16 +348,15 @@ h6 strong{
 	top: 1980px;
 	z-index: 0;
 	height: 485px;
-	background: url(img/bg02.jpg);
-	background-size: 1349px;
 }
 .night{
 	height: 390px;
 	box-shadow: 0 0 10px 5px rgba(200,255,255,0.3);
 }
 .night:after{
-	background: url(img/bg02.jpg) top -40px left -254px;
-	background-size: 1349px;
+	-webkit-filter: hue-rotate(330deg);
+	filter: hue-rotate(330deg);
+	background-position: -254px -2020px;
 }
 .night p{
 	max-height: 175px;
@@ -352,16 +369,15 @@ h6 strong{
 	top: 2465px;
 	z-index: 0;
 	height: 555px;	
-	background: url(img/bg02.jpg) top -485px center;
-	background-size: 1349px;
 }
 .quote{
 	height: 460px;
 	box-shadow: 0 0 10px 5px rgba(255,200,255,0.3);
 }
 .quote:after{
-	background: url(img/bg02.jpg) top -525px left -254px;
-	background-size: 1349px;
+	-webkit-filter: hue-rotate(45deg);
+	filter: hue-rotate(45deg);
+	background-position: -254px -2505px;
 }
 .quote .author{
 	text-align: right;
@@ -372,9 +388,7 @@ h6 strong{
 #picture{
 	position: absolute;
 	top: 3020px;
-	height: 925px;
-	background: url(img/bg02.jpg) top -1040px center;
-	background-size: 1349px;
+	height: 940px;
 }
 #picture h3{
 	font: bold 30px/1 SimSun;
