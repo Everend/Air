@@ -1,5 +1,4 @@
 body{
-	margin: 0;
 	overflow-x: hidden;
 }
 *{
@@ -249,7 +248,7 @@ h6 strong{
 	left: 10px;
 	width: 22px;
 	height: 21px;
-	background: url(icon.png);
+	background: url(img/icon.png);
 	background-size: cover;
 }
 .next img{
