@@ -6,7 +6,23 @@
 		<link rel="stylesheet"type="text/css"href="css/tp.css">
 	</head>
 	<body>
-		<input type="date">
+		<script>
+			var browserName = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50".toLowerCase();
+			var browser = {
+			    version: (browserName.match(/.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/) || [0, '0'])[1],
+			    safari: /safari/i.test(browserName) && !/chrome/i.test(browserName),
+			    opera: /opera/i.test(browserName),
+			    firefox: /firefox/i.test(browserName),
+			    ie: /msie/i.test(browserName) && !/opera/.test(browserName),
+			    mozilla: /mozilla/i.test(browserName) && !/(compatible|webkit)/.test(browserName) && !this.chrome,
+			    chrome: /chrome/i.test(browserName) && /webkit/i.test(browserName) && /mozilla/i.test(browserName),
+			    mobile: !!browserName.match(/applewebkit.*mobile.*/)
+					|| browserName.indexOf('android') > -1 || browserName.indexOf('linux') > -1
+				|| browserName.indexOf('iphone') > -1 || browserName.indexOf('ipod') > -1
+				|| browserName.indexOf('ipad') > -1
+			}
+			alert(browser.safari+''+browser.mobile);
+		</script>
 		<div id="box">
 			<p>今 敏</p>
 			<p id="ap">动画界的造梦大师<p>
@@ -97,8 +113,4 @@
 				<li><img src="img/tg.jpg"width="225px"height="300px"/><p>东京教父(2003)</p></li>
 				<li><img src="img/pr.jpg"width="225px"height="300px"/><p>红辣椒(2006)</p></li>		
 			</ul>
-				<p id="la"><i>今敏：「我要怀着对世上所有美好事物的谢意，放下我的笔了。那么，我就先走一步了。」</i></p>
-				<a href="https://en.wikipedia.org/wiki/Satoshi_Kon">More Information About Satoshi Kon</a>
-		</div>
-	</body>
-</html>
+				<p id="la"><i>今敏：「我要怀着对世上所有美好事物的谢意，
