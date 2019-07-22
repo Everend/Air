@@ -15,7 +15,8 @@
 				var reader = new FileReader();
 				reader.readAsDataURL(file);
 				reader.onload = function(e){
-					var $image = $('<img src="' + e.target.result + ')">');
+					var $image = $('<img>');
+					$image.attr('src', this.result);
 					$('body').append($image);
 					//image.load(function(){
 					//	context.clearRect(0, 0, this.width, this.height);
