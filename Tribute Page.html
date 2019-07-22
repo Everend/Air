@@ -10,6 +10,7 @@
 		<canvas style="background:gainsboro;"></canvas>
 		<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
 		<script>
+			window.onload = function(){
 				var img = document.getElementsByTagName('img')[0],
 					orientation = 1;
 				EXIF.getData(img, function(){
@@ -47,6 +48,7 @@
 						context.drawImage(img, 0, 0, imageWidth, imageHeight);
 					}
 				});
+			}
 		</script>
 		<div id="box">
 			<p>今 敏</p>
