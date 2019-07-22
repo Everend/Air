@@ -11,7 +11,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
 		<script>
 			function foo(){
-				var img = document.querySelector('img')[0],
+				var img = document.querySelectorAll('img')[0],
 					canvas = document.querySelector('canvas')[0],
 					orientation = 1;
 				EXIF.getData(img, function(){
