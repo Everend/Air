@@ -6,22 +6,47 @@
 		<link rel="stylesheet"type="text/css"href="css/tp.css">
 	</head>
 	<body>
+		<img src="http://code.ciaoca.com/javascript/exif-js/demo/photo/DSCN0614_small.jpg">
+		<canvas style="background:gainsboro;"></canvas>
+		<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
 		<script>
-			var browserName = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50".toLowerCase();
-			var browser = {
-			    version: (browserName.match(/.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/) || [0, '0'])[1],
-			    safari: /safari/i.test(browserName) && !/chrome/i.test(browserName),
-			    opera: /opera/i.test(browserName),
-			    firefox: /firefox/i.test(browserName),
-			    ie: /msie/i.test(browserName) && !/opera/.test(browserName),
-			    mozilla: /mozilla/i.test(browserName) && !/(compatible|webkit)/.test(browserName) && !this.chrome,
-			    chrome: /chrome/i.test(browserName) && /webkit/i.test(browserName) && /mozilla/i.test(browserName),
-			    mobile: !!browserName.match(/applewebkit.*mobile.*/)
-					|| browserName.indexOf('android') > -1 || browserName.indexOf('linux') > -1
-				|| browserName.indexOf('iphone') > -1 || browserName.indexOf('ipod') > -1
-				|| browserName.indexOf('ipad') > -1
+			var img = document.getElementsByTagName('img')[0],
+				orientation = 1;
+			EXIF.getData(img, function(){
+				orientation = EXIF.getTag(this, 'Orientation');
+				console.log(this,orientation);
+				orientation = 6;
+			});
+			var canvas = document.querySelector('canvas'),
+				img = document.querySelector('img');
+			canvas.width = img.width;
+			canvas.height = img.height;
+			var context = canvas.getContext('2d');
+			context.clearRect(0, 0, img.width, img.height);
+			var imageWidth = img.width;
+			var imageHeight = img.height;
+			if(orientation !== 1){
+			switch(orientation){
+				case 6://顺时针90°处理
+					canvas.width = imageHeight;
+					canvas.height = imageWidth;
+					context.rotate(Math.PI / 2);
+					context.drawImage(img, 0, -imageHeight, imageWidth, imageHeight);
+					break;
+				case 8://逆时针90°
+					canvas.width = imageHeight;
+					canvas.height = imageWidth;
+					context.rotate(3 * Math.PI / 2);
+					context.drawImage(img, -imageWidth, 0, imageWidth, imageHeight);
+					break;
+				case 3://旋转180°
+					context.rotate(Math.PI);
+					context.drawImage(img, -imageWidth, -imageHeight, imageWidth, imageHeight);
+					break;
+				}
+			}else{
+				context.drawImage(img, 0, 0, imageWidth, imageHeight);
 			}
-			alert(browser.safari+''+browser.mobile);
 		</script>
 		<div id="box">
 			<p>今 敏</p>
