@@ -18,6 +18,7 @@
 					orientation = 1;
 				EXIF.getData(img, function(){
 					orientation = EXIF.getTag(this, 'Orientation');
+					alert(orientation);
 					orientation = 6;
 					canvas.width = img.width;
 					canvas.height = img.height;
