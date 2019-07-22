@@ -9,6 +9,7 @@
 		<script>
 			function foo(){
 				var $input = $('input'),
+				    $span = $('span'),
 					$canvas = $('canvas'),
 					context = $canvas[0].getContext('2d'),
 					file = $input[0].files[0];
@@ -24,7 +25,7 @@
 					//	var data = canvas.toDataURL('image/jpeg');
 					//});
 					EXIF.getData($image[0], function(){
-						alert(EXIF.getTag(this, 'Orientation'));
+						$span.text(EXIF.getAllTag(this, 'Orientation'));
 					});
 			 	}
 			}
@@ -36,5 +37,6 @@
 	<body>
 		<input type="file" onchange="foo();">
 		<canvas style="background:gainsboro;"></canvas>
+		<p>Orientation:<span></span></p>
 	</body>
 </html>
