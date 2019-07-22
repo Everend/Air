@@ -8,10 +8,10 @@
 		<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
 		<script>
 			function foo(){
-				var input = $('input')[0],
-					canvas = $('canvas')[0],
-					context = canvas[0].getContext('2d'),
-					file = input.files[0];
+				var $input = $('input'),
+					$canvas = $('canvas'),
+					context = $canvas[0].getContext('2d'),
+					file = $input[0].files[0];
 				var reader = new FileReader();
 				reader.readAsDataURL(file);
 				reader.onload = function(e){
