@@ -18,14 +18,13 @@
 				reader.onload = function(){
 					var $image = $('<img>');
 					$image.attr('src', this.result);
-					$('body').append($image);
 					//image.load(function(){
 					//	context.clearRect(0, 0, this.width, this.height);
 					//	context.drawImage(img, 0, 0);
 					//	var data = canvas.toDataURL('image/jpeg');
 					//});
 					$image.load(function(){
-						EXIF.getData($image[0], function(){
+						EXIF.getData(this, function(){
 							var x = EXIF.getAllTags(this);//EXIF.getTag(this, 'Orientation');
 							x === undefined && (x = 'undefined');
 							var str = '';
@@ -45,6 +44,6 @@
 	<body>
 		<input type="file" onchange="foo();">
 		<canvas style="background:gainsboro;"></canvas>
-		<p>Orientation:<span></span></p>
+		<p><span></span></p>
 	</body>
 </html>
