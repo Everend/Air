@@ -10,7 +10,7 @@
 			function foo(){
 				var input = $('input'),
 					canvas = $('canvas'),
-					context = canvas.getContext('2d');
+					context = canvas[0].getContext('2d'),
 					file = input.files[0];
 				var reader = new FileReader();
 				reader.readAsDataURL(file);
