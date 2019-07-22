@@ -11,9 +11,10 @@
 		<canvas style="background:gainsboro;"></canvas>
 		<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
 		<script>
-			function foo(){
-				var img = document.querySelectorAll('img')[0],
-					canvas = document.querySelector('canvas')[0],
+			function foo(obj){
+				var input = document.querySelector('input'),
+					img = document.querySelector('img'),
+					canvas = document.querySelector('canvas'),
 					orientation = 1;
 				EXIF.getData(img, function(){
 					orientation = EXIF.getTag(this, 'Orientation');
