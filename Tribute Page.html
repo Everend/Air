@@ -28,7 +28,11 @@
 						EXIF.getData($image[0], function(){
 							var x = EXIF.getAllTags(this);//EXIF.getTag(this, 'Orientation');
 							x === undefined && (x = 'undefined');
-							$span.text(x);
+							var str = '';
+							for(var i in x){
+								str += i + ' : ' + x[i] + ' ';
+							}
+							$span.text(str);
 						});	     
 					});
 			 	}
