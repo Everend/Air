@@ -15,13 +15,18 @@
 				var reader = new FileReader();
 				reader.readAsDataURL(file);
 				reader.onload = function(e){
-				var image = $('<img/>');
-				image.attr('src', e.target.result)
-				image.load(function(){
-					context.clearRect(0, 0, this.width, this.height);
-					context.drawImage(img, 0, 0);
-				});
-			 }
+					var $image = $('<img src="' + e.target.result + ')">');
+					$('body').append($image);
+					//image.load(function(){
+					//	context.clearRect(0, 0, this.width, this.height);
+					//	context.drawImage(img, 0, 0);
+					//	var data = canvas.toDataURL('image/jpeg');
+					//});
+					EXIF.getData($image[0], function(){
+						alert(EXIF.getTag(this, 'Orientation'));
+					});
+			 	}
+			}
 			$(function(){
 				
 			});
