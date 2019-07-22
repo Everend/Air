@@ -15,7 +15,7 @@
 					file = $input[0].files[0];
 				var reader = new FileReader();
 				reader.readAsDataURL(file);
-				reader.onload = function(e){
+				reader.onload = function(){
 					var $image = $('<img>');
 					$image.attr('src', this.result);
 					$('body').append($image);
@@ -24,7 +24,7 @@
 					//	context.drawImage(img, 0, 0);
 					//	var data = canvas.toDataURL('image/jpeg');
 					//});
-					$image.load(fcuntion(){
+					$image.load(function(){
 						EXIF.getData($image[0], function(){
 							var x = EXIF.getTag(this, 'Orientation');
 							x === undefined && (x = 'undefined');
